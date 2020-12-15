@@ -20,6 +20,8 @@ export class Player{
         let e = document.getElementById(`${this.playingTeam.name}-${this.name}-${this.numberOfBalls +1}`)
         if (this.numberOfBalls <5){
 
+            this.playingTeam.inGame.myTimer();
+
             this.balls.push(randScore);
             this.numberOfBalls ++
             this.playingTeam.totalScore += randScore;

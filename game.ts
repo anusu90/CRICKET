@@ -5,6 +5,9 @@ export class Game{
     teams:Array<Team> = [];
     // manOfMatch: <Player>{};
     playingTeam: Team;
+    flag:number = 0;
+    innerTimer: any = () => {};
+    innerTimeOut:any = () => {};
     
     constructor(){
         for (let index = 1; index <= 2; index++) {
@@ -43,6 +46,8 @@ export class Game{
     changeTeam(){
         console.log('I am here')
         let currentTeamIndex = this.playingTeam.id - 1
+        this.flag = 0;
+        this.myTimer();
         if (currentTeamIndex === 0) {
             this.playingTeam = this.teams[currentTeamIndex+1];
             (<HTMLButtonElement>document.getElementById("team1-hit")).disabled = true;
@@ -59,6 +64,7 @@ export class Game{
     
     endGame(){
         console.log('EndGame');
+        this.myTimerStopper();
         (<HTMLButtonElement>document.getElementById("team1-hit")).disabled = true;
         (<HTMLButtonElement>document.getElementById("team2-hit")).disabled = true;
         (<HTMLButtonElement>document.getElementById("generate-result")).disabled = false;
@@ -99,5 +105,47 @@ export class Game{
 
     }
 
+    myTimerStopper = ()=>  {
+        let timer = <HTMLElement>document.getElementById('timer');
+        if(timer) timer.innerHTML = String(60);
+        console.log('clearing timers');
+        clearInterval(this.innerTimer);
+        console.log(this.innerTimer);
+        clearTimeout(this.innerTimeOut);
+        console.log(this.innerTimeOut);
+    }
+
+    
+    myTimer = () => {
+
+        if (this.flag === 0){
+
+            clearInterval(this.innerTimer);
+            clearTimeout(this.innerTimeOut);
+
+            let timer = <HTMLElement>document.getElementById('timer');
+            let i = 59;
+
+            this.innerTimer = setInterval(() => {    
+                this.flag = 1;
+                if(timer) timer.innerHTML = String(i);
+                i = i - 1;
+                console.log(i);
+                
+            },1000)
+
+            this.innerTimeOut = setTimeout(() => {
+                clearInterval(this.innerTimer);
+                this.changeTeam();
+                if(timer) timer.innerHTML = String(60);
+            },10000)
+
+        }
+        
+    }
+
+
+
 
 }
+
