@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>CRICKET</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 text-center">
+                <h1>
+                    CRICKET 10
+                </h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h2 style="display: block;">TEAM 1 SCORE</h2>
+                <p class="t-score" id="t1-score">&nbsp;</p>
+                <button class="btn btn-primary" id="team1-hit">HIT</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>TIMER</h3>
+                <h4 id="timer">60</h4>
+            </div>
+            <div class="col-md-4 text-center">
+                <h2 style="display: block;">TEAM 2 SCORE</h2>
+                <p class="t-score" id="t2-score">&nbsp;</p>
+                <button class="btn btn-primary" id="team2-hit">HIT</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-4">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">TEAM-1</th>
+                        <th scope="col">B1</th>
+                        <th scope="col">B2</th>
+                        <th scope="col">B3</th>
+                        <th scope="col">B4</th>
+                        <th scope="col">B5</th>
+                        <th scope="col">B6</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody-team1">
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col-md-4 text-center">
+                <h4>MATCH WON BY</h4>
+                <p id='winner'>&nbsp;</p>
+                <br>
+                <h4>MAN OF MATCH</h4>
+                <p id='mom'>&nbsp;</p>
+                <br>
+                <button class="btn btn-primary" id="generate-result">RESULT</button>
+            </div>
+            <div class="col-md-4">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">TEAM-2</th>
+                        <th scope="col">B1</th>
+                        <th scope="col">B2</th>
+                        <th scope="col">B3</th>
+                        <th scope="col">B4</th>
+                        <th scope="col">B5</th>
+                        <th scope="col">B6</th>
+                        <th scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody-team2">
+                    </tbody>
+                  </table>
+            </div>
+
+        </div>
+    
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
