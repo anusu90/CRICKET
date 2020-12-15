@@ -138,7 +138,7 @@ export class Game{
                 clearInterval(this.innerTimer);
                 this.changeTeam();
                 if(timer) timer.innerHTML = String(60);
-            },10000)
+            },59000)
 
         }
         
